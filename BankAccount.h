@@ -1,8 +1,8 @@
 #ifndef BANKACCOUNT_H
 #define BANKACCOUNT_H
-using namespace std;
 
 #include <string>
+using namespace std;
 
 class BankAccount {
 protected:
@@ -14,7 +14,9 @@ public:
     BankAccount(const string& pin, const string& routing);
 
     virtual ~BankAccount() = default;
-    virtual void showInfo() const = 0; 
+
+    virtual void showInfo() const = 0;
+    virtual double getBalance() const = 0; 
 };
 
 #endif

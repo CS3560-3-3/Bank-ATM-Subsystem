@@ -4,8 +4,9 @@ Creators: Adrian Portillo, Christopher Casanave, Evan Liang, Jose Pineda, Patric
 --------------------------------------
 This system is designed to be a simple ATM Machine subsystem. <br>
 Classes:<br>
-(list classes here)<br>
+   (list classes here)<br>
 Use Cases:<br>
-(list use cases here)<br>
-
+   (list use cases here)<br>
+--------------------------------------
+# For CS3560
 

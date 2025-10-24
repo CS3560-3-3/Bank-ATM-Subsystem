@@ -2,6 +2,7 @@
 #define CHECKING_H
 
 #include "BankAccount.h"
+#include <iostream>
 using namespace std;
 
 class Checking : public BankAccount {
@@ -14,8 +15,7 @@ public:
              const string& pin, const string& routing);
 
     double getBalance() const override;
-    void setBalance(double newBalance);
-
+    void setBalance(double newBalance) override;
     void showInfo() const override;
 };
 

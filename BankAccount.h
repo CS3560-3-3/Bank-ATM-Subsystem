@@ -15,8 +15,9 @@ public:
 
     virtual ~BankAccount() = default;
 
+    virtual double getBalance() const = 0;
+    virtual void setBalance(double newBalance) = 0;
     virtual void showInfo() const = 0;
-    virtual double getBalance() const = 0; 
 };
 
 #endif

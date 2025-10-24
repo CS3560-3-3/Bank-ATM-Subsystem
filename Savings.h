@@ -2,6 +2,7 @@
 #define SAVINGS_H
 
 #include "BankAccount.h"
+#include <iostream>
 using namespace std;
 
 class Savings : public BankAccount {
@@ -14,8 +15,9 @@ public:
     Savings(const string& accountNumber, double balance, double interest,
             const string& pin, const string& routing);
 
-    void applyInterest();
     double getBalance() const override;
+    void setBalance(double newBalance) override;
+    void applyInterest();
     void showInfo() const override;
 };
 

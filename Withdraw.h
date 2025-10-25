@@ -11,6 +11,7 @@ private:
 public:
     Withdraw(double amount = 0.0);
 
+    // Process the withdrawal and then return the amount withdrawn
     void process();
     double getAmount() const;
 };

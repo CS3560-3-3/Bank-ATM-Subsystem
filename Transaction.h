@@ -13,11 +13,11 @@ class Transaction {
 private:
     double transactionAmount;
     string transactionID;
-    string transactionType;  // e.g., "withdraw", "deposit", "transfer"
+    string transactionType;  // "withdraw", "deposit", "transfer"
     string transactionDate;
 
-    BankAccount* fromAccount;  // may be nullptr for deposits
-    BankAccount* toAccount;    // may be nullptr for withdrawals
+    BankAccount* fromAccount;  // may be null for deposits
+    BankAccount* toAccount;    // may be null for withdrawals
 
     Receipt* receipt;          // 0..1
     Withdraw* withdrawObj;     // 0..1

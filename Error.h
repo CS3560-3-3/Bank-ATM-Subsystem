@@ -13,6 +13,7 @@ private:
 public:
     Error(int code = 0, const string& type = "", const string& cause = "");
 
+    // Display the error details
     void displayError() const;
 };
 

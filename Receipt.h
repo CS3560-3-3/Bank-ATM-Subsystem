@@ -11,6 +11,7 @@ private:
 public:
     Receipt(double transferAmount = 0.0);
 
+    // Print the receipt details
     void printReceipt() const;
 };
 

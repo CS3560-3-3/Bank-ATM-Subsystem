@@ -14,6 +14,7 @@ public:
     Checking(const string& accountNumber, double balance,
              const string& pin, const string& routing);
 
+    // Getter and setters
     double getBalance() const override;
     void setBalance(double newBalance) override;
     void showInfo() const override;

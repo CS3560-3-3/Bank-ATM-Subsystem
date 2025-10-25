@@ -11,6 +11,7 @@ private:
 public:
     Deposit(double amount = 0.0);
 
+    // Process the deposit and then return the amount deposited
     void process();
     double getAmount() const;
 };

@@ -20,7 +20,7 @@ public:
     Customer(const string& name, const string& phone,
              const string& email, const string& ssn, const string& address);
 
-    // Getters / setters
+    // Getters, setters not needed since an ATM does not modify customer info
     string getName() const;
     string getPhone() const;
     string getEmail() const;

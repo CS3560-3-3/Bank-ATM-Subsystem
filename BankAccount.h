@@ -8,7 +8,6 @@ class BankAccount {
 protected:
     string accountPin;
     string routingNumber;
-
 public:
     BankAccount();
     BankAccount(const string& pin, const string& routing);

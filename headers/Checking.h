@@ -9,10 +9,12 @@ class Checking : public BankAccount {
 private:
     string accountNumber;
     double accountBalance;
+    int accountPin;
+    int routingNumber;
 
 public:
-    Checking(const string& accountNumber, double balance,
-             const string& pin, const string& routing);
+    Checking(const string& accountNum, double balance,
+             const int& pin, const int& routing);
 
     // Getter and setters
     double getBalance() const override;

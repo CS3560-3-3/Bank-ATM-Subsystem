@@ -126,6 +126,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\..\Downloads\sqlite-amalgamation-3510000\sqlite-amalgamation-3510000\sqlite3.c" />
     <ClCompile Include="..\sources\BankAccount.cpp" />
+    <ClCompile Include="..\sources\card_service.cpp" />
+    <ClCompile Include="..\sources\Crypto.cpp" />
+    <ClCompile Include="..\sources\crypto_key_manager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Checking.cpp" />
   </ItemGroup>

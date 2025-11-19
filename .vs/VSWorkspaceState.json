@@ -7,8 +7,11 @@
   },
   "ExpandedNodes": [
     "",
-    "\\App"
+    "\\App",
+    "\\headers",
+    "\\security",
+    "\\sources"
   ],
-  "SelectedNode": "\\App\\App.vcxproj",
+  "SelectedNode": "\\sources\\BankAccount.cpp",
   "PreviewInSolutionExplorer": false
 }

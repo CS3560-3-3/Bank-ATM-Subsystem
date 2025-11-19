@@ -127,6 +127,7 @@
     <ClCompile Include="..\..\..\..\Downloads\sqlite-amalgamation-3510000\sqlite-amalgamation-3510000\sqlite3.c" />
     <ClCompile Include="..\sources\BankAccount.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Checking.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\headers\BankAccount.h" />

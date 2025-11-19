@@ -8,8 +8,8 @@ class BankAccount {
 protected:
     string accountPin;
     string routingNumber;
-public:
     BankAccount();
+public:
     BankAccount(const string& pin, const string& routing);
 
     // Polymorphic interface

@@ -34,7 +34,7 @@ string Customer::getAddress() const {
 	return address;
 }
 
-Customer::getAccounts() const {
+vector<BankAccount*> Customer::getAccounts() const {
 	return accounts;
 }
 

@@ -29,14 +29,14 @@ string Transaction::getDate() const {
 }
 
 /*--------Logic & Errors--------*/
-bool Transaction::execute() {
+/*bool Transaction::execute() {
 	//execute logic here
-}
+} */
 
-Receipt* Transaction::getReceipt() const {
+/* Receipt* Transaction::getReceipt() const {
 	//receipt logic here
-}
+} */
 
-Error* getError() const {
+/* Error* getError() const {
 	//error logic here
-}
+} */

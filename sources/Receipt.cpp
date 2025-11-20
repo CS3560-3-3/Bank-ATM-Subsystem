@@ -7,6 +7,6 @@ Receipt::Receipt(double transferAmount) :
 {}
 
 /*--------Print the receipt details--------*/
-void Receipt : printReceipt() const {
+void Receipt::printReceipt() const {
 	//print receipt logic
 }

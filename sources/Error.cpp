@@ -1,4 +1,5 @@
 #include "../headers/Error.h"
+#include <iostream>
 
 //Parameterized constructor with default values
 Error::Error(int code, const string& type, const string& cause) : 

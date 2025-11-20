@@ -125,8 +125,14 @@
     <ClCompile Include="sources\Crypto.cpp" />
     <ClCompile Include="sources\crypto_key_manager.cpp" />
     <ClCompile Include="sources\Customer.cpp" />
+    <ClCompile Include="sources\Deposit.cpp" />
+    <ClCompile Include="sources\Error.cpp" />
     <ClCompile Include="sources\main.cpp" />
+    <ClCompile Include="sources\Receipt.cpp" />
+    <ClCompile Include="sources\Savings.cpp" />
     <ClCompile Include="sources\sqlite3.c" />
+    <ClCompile Include="sources\Transaction.cpp" />
+    <ClCompile Include="sources\Withdraw.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\BankAccount.h" />

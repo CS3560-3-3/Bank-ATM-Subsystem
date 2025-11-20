@@ -22,10 +22,10 @@ void Savings::showInfo() const {
 }
 
 /*--------Setters--------*/
-void setBalance(double newBalance) {
+void Savings::setBalance(double newBalance) {
 	accountBalance = newBalance;
 }
 
-void applyInterest() {
+void Savings::applyInterest() {
 	// Apply interest to the account balance
 }

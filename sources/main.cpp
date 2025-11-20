@@ -6,6 +6,9 @@
 using namespace std;
 
 int main() {
+/*--------Declarations--------*/
+    long long cardNum;
+
     // 1. Load database
     sqlite3* db = nullptr;
     if (sqlite3_open("atm.db", &db) != SQLITE_OK) {
@@ -19,7 +22,7 @@ int main() {
     cout << "Database opened successfully.\n";
 
     // 2. Load AES key (testing CryptoKeyManager)
-    CryptoKeyManager km;
+    /* CryptoKeyManager km;
 
     vector<unsigned char> key;
     if (!km.keyExists()) {
@@ -49,7 +52,13 @@ int main() {
         cout << "Card insertion FAILED.\n";
     }
 
-    sqlite3_close(db);
+    sqlite3_close(db); */
+
+    cout << "Please enter your card number: " << endl;
+    cin >> cardNum;
+
+    cout << cardNum;
+
     return 0;
 }
 

@@ -9,6 +9,7 @@ int main() {
 /*--------Declarations--------*/
     long long cardNum;
 
+/*--------Open Database--------*/
     // 1. Load database
     sqlite3* db = nullptr;
     if (sqlite3_open("atm.db", &db) != SQLITE_OK) {

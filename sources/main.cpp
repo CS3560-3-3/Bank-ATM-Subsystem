@@ -12,7 +12,7 @@ int main() {
 /*--------Open Database--------*/
     // 1. Load database
     sqlite3* db = nullptr;
-    if (sqlite3_open("atm.db", &db) != SQLITE_OK) {
+    if (sqlite3_open("./BankATM/atm.db", &db) != SQLITE_OK) {
         cout << "Failed to open DB: " << sqlite3_errmsg(db) << endl;
         return 1;
     }

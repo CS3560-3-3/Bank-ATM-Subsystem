@@ -5,22 +5,73 @@
 
 using namespace std;
 
-int main() {
-/*--------Declarations--------*/
-    long long cardNum;
+/*--------Function Declarations--------*/
+static int selectData(sqlite3* db, string phonNum, string userID);
+static int callback(void* NotUsed, int argc, char** argv, char** azColName);
+static int accounts(void* NotUsed, int argc, char** argv, char** azColName);
 
-/*--------Open Database--------*/
-    // 1. Load database
-    sqlite3* db = nullptr;
-    if (sqlite3_open("./BankATM/atm.db", &db) != SQLITE_OK) {
-        cout << "Failed to open DB: " << sqlite3_errmsg(db) << endl;
-        return 1;
+
+//MOST OF THIS CODE WILL BE DELETED. THIS IS JUST TO TEST THE DATABASE CONNECTION AND QUERIES.
+
+/*----------Functions----------*/
+static int selectData(sqlite3* db, string phoneNum, string userID) {
+	string sql = "SELECT firstName, lastName FROM User WHERE phone = ";
+    string sql2 = "SELECT accountType, accountBal FROM Accounts WHERE userID = ";
+    sql += phoneNum;
+	sql += ";";
+    sql2 += userID;
+    sql2 += ";";
+    char* errMsg = nullptr;
+
+    int rc = sqlite3_exec(db, sql.c_str(), callback, nullptr, &errMsg);
+    int rc2 = sqlite3_exec(db, sql2.c_str(), accounts, nullptr, &errMsg);
+
+    if (rc != SQLITE_OK) {
+        cerr << "SQL error: " << (errMsg ? errMsg : "Unknown error") << endl;
+        sqlite3_free(errMsg);
     }
 
-    cout << "DB file actually opened: " << sqlite3_db_filename(db, "main") << endl;
+    return rc;
+}
 
+static int callback(void* Notused, int argc, char** argv, char** azColName) {
+    cout << "Hello there, " << argv[0] << " " << argv[1] << ". " << endl;
 
-    cout << "Database opened successfully.\n";
+    cout << endl;
+    return 0;
+}
+
+static int accounts(void* Notused, int argc, char** argv, char** azColName) {
+    cout << argv[0] << "\nBalance: " << argv[1] << endl;
+    cout << endl;
+    return 0;
+}
+
+int main() {
+/*--------Declarations--------*/
+    string phoneNum = "";
+    string userID = "";
+	const char* dbPath = "./BankATM/atm.db";
+    sqlite3* db = nullptr;
+    
+/*--------Open Database--------*/
+    int rc = sqlite3_open(dbPath, &db);
+    if (rc) {
+		cerr << "Can't open database: " << sqlite3_errmsg(db) << endl;
+        return 1;
+    }
+    cout << "Database opened successfully." << endl;
+
+/*--------GET CARD NUM--------*/
+    cout << "Please enter your phone number: ";
+    cin >> phoneNum;
+
+	cout << "Please enter your user ID: ";
+    cin >> userID;
+
+/*--------SELECT DATA--------*/
+    selectData(db, phoneNum, userID);
+    // 1. Load database
 
     // 2. Load AES key (testing CryptoKeyManager)
     /* CryptoKeyManager km;
@@ -55,11 +106,5 @@ int main() {
 
     sqlite3_close(db); */
 
-    cout << "Please enter your card number: " << endl;
-    cin >> cardNum;
-
-    cout << cardNum;
-
     return 0;
 }
-

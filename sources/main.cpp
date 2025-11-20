@@ -15,13 +15,10 @@ static int accounts(void* NotUsed, int argc, char** argv, char** azColName);
 
 /*----------Functions----------*/
 static int selectData(sqlite3* db, string phoneNum, string userID) {
-	string sql = "SELECT firstName, lastName FROM User WHERE phone = ";
-    string sql2 = "SELECT accountType, accountBal FROM Accounts WHERE userID = ";
-    sql += phoneNum;
-	sql += ";";
-    sql2 += userID;
-    sql2 += ";";
+    string sql = "SELECT firstName, lastName FROM User WHERE phone = '" + phoneNum + "';";
+    string sql2 = "SELECT accountType, accountBal FROM Accounts WHERE userID = '" + userID + "';";
     char* errMsg = nullptr;
+    char* errMsg2 = nullptr;
 
     int rc = sqlite3_exec(db, sql.c_str(), callback, nullptr, &errMsg);
     int rc2 = sqlite3_exec(db, sql2.c_str(), accounts, nullptr, &errMsg);
@@ -29,6 +26,10 @@ static int selectData(sqlite3* db, string phoneNum, string userID) {
     if (rc != SQLITE_OK) {
         cerr << "SQL error: " << (errMsg ? errMsg : "Unknown error") << endl;
         sqlite3_free(errMsg);
+    }
+    if (rc2 != SQLITE_OK) {
+        cerr << "SQL error (Accounts): " << (errMsg2 ? errMsg2 : "Unknown error") << endl;
+        sqlite3_free(errMsg2);
     }
 
     return rc;

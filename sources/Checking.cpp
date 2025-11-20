@@ -1,6 +1,7 @@
 #include "../headers/Checking.h"
 #include <iostream>
 
+/*-------Parameterized Constructor-------*/
 Checking::Checking(const string& accountNum, double balance, const int& pin, const int& routing) :
 	accountNumber(accountNum),
 	accountBalance(balance),
@@ -8,14 +9,16 @@ Checking::Checking(const string& accountNum, double balance, const int& pin, con
 	routingNumber(routing)
 	{}
 
+/*-------Getters-------*/ /
 double Checking::getBalance() const {
 	return accountBalance;
 }
 
-void Checking::setBalance(double newBalance) {
-	accountBalance = newBalance;
+void Checking::showInfo() const {
+	//logic for displaying checking account info goes here
 }
 
-void Checking::showInfo() const {
-
+//-------Setters-------*/
+void Checking::setBalance(double newBalance) {
+	accountBalance = newBalance;
 }

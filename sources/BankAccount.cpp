@@ -14,16 +14,17 @@ BankAccount::BankAccount() {
 }
 
 /*-------Getters-------*/
-virtual double BankAccount::getBalance() const {
+double BankAccount::getBalance() const {
 	//logic for getting balance goes here
+	return 0;
 }
 
 /*-------Setters-------*/
-virtual void BankAccount::setBalance(double newBalance) {
+void BankAccount::setBalance(double newBalance) {
 	//logic for setting balance goes here
 }
 
 /*-------Display Info-------*/
-virtual void BankAccount::showInfo() const {
+void BankAccount::showInfo() const {
 	//logic for displaying account info goes here
-}s
+}

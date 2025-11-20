@@ -9,7 +9,7 @@ Checking::Checking(const string& accountNum, double balance, const int& pin, con
 	routingNumber(routing)
 	{}
 
-/*-------Getters-------*/ /
+/*-------Getters-------*/
 double Checking::getBalance() const {
 	return accountBalance;
 }

@@ -10,6 +10,8 @@ private:
     string accountNumber;
     double accountBalance;
     double interestPercentage;
+    string accountPin;
+    string routingNumber;
 
 public:
     Savings(const string& accountNumber, double balance, double interest,

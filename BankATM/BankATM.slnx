@@ -1,7 +1,0 @@
-<Solution>
-  <Configurations>
-    <Platform Name="x64" />
-    <Platform Name="x86" />
-  </Configurations>
-  <Project Path="BankATM/BankATM.vcxproj" Id="3f237b44-f525-4006-b750-47029d487413" />
-</Solution>

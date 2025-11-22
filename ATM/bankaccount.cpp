@@ -4,6 +4,8 @@
 #include <QtSql>
 #include <QComboBox>
 #include <QStringList>
+#include <QStandardItem>
+#include <QStandardItemModel>
 #include <vector>
 
 BankAccount::BankAccount(int cardPin, long long cardNum, std::vector<long long> accountNums, int userID, QWidget *parent)
@@ -18,6 +20,7 @@ BankAccount::BankAccount(int cardPin, long long cardNum, std::vector<long long> 
     getTypes();
     setActBalance();
     setComboBox();
+    getUserName();
 }
 
 BankAccount::~BankAccount()
@@ -96,7 +99,7 @@ void BankAccount::setActBalance() {
             return;
         }
         if(accountBalanceQuery.next()) {
-            balLabels[i]->setText(accountBalanceQuery.value(0).toString());
+            balLabels[i]->setText("$ " + accountBalanceQuery.value(0).toString());
         }
 
         i++;
@@ -106,6 +109,8 @@ void BankAccount::setActBalance() {
 void BankAccount::setComboBox() {
     QComboBox *cbFrom = ui->cbFrom;
     QComboBox *cbTo = ui->cbTo;
+    QComboBox *cbDeposit = ui->cbDeposit;
+    QComboBox *cbWithdraw = ui->cbWithdraw;
     QString accountType;
     QSqlQuery accountTypeQuery;
     int i = 0;
@@ -125,6 +130,8 @@ void BankAccount::setComboBox() {
         if(accountTypeQuery.next()) {
             cbFrom->addItem(accountTypeQuery.value(0).toString());
             cbTo->addItem(accountTypeQuery.value(0).toString());
+            cbDeposit->addItem(accountTypeQuery.value(0).toString());
+            cbWithdraw->addItem(accountTypeQuery.value(0).toString());
         }
 
         i++;
@@ -132,6 +139,8 @@ void BankAccount::setComboBox() {
 
     cbFrom->setCurrentIndex(-1);
     cbTo->setCurrentIndex(-1);
+    cbDeposit->setCurrentIndex(-1);
+    cbWithdraw->setCurrentIndex(-1);
 
     connect(ui->cbFrom, QOverload<int>::of(&QComboBox::currentIndexChanged),
         this, &BankAccount::onFromAccountChanged);
@@ -222,6 +231,136 @@ void BankAccount::on_submitTransfer_clicked()
                           "AND userID = :userID");
     updateToQuery.bindValue(":toBalance", toBalance);
     updateToQuery.bindValue(":accountTo", accountTo);
+    updateFromQuery.bindValue(":userId", userID);
     updateToQuery.exec();
-}//on_submitTransfer_clicked()
+}//onSubmitTransferClicked
 
+
+void BankAccount::on_cancelTransfer_clicked()
+{
+    ui->cbFrom->setCurrentIndex(-1);
+    ui->cbTo->setCurrentIndex(-1);
+
+    auto *fromModel = qobject_cast<QStandardItemModel*>(ui->cbFrom->model());
+    auto *toModel   = qobject_cast<QStandardItemModel*>(ui->cbTo->model());
+
+    if (fromModel) {
+        for (int i = 0; i < fromModel->rowCount(); ++i) {
+            QStandardItem *item = fromModel->item(i);
+            if (item) item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        }
+    }
+    if (toModel) {
+        for (int i = 0; i < toModel->rowCount(); ++i) {
+            QStandardItem *item = toModel->item(i);
+            if (item) item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        }
+    }
+}
+
+
+void BankAccount::on_btnSubmitDeposit_clicked()
+{
+    QSqlQuery balanceQuery;
+    QSqlQuery updateDB;
+    QString accountTypeInput;
+    int depositAmount;
+    int accountBalance;
+
+    depositAmount = ui->txtDeposit->toPlainText().trimmed().toInt();
+    accountTypeInput = ui->cbDeposit->currentText();
+
+    balanceQuery.prepare("SELECT accountBal "
+                         "FROM accounts "
+                         "WHERE accountType = :accountTypeInput "
+                         "AND userID = :userID");
+    balanceQuery.bindValue(":accountTypeInput", accountTypeInput);
+    balanceQuery.bindValue(":userID", userID);
+
+    if(!balanceQuery.exec()) {
+        qWarning() << "Query failed: " << balanceQuery.lastError().text();
+        return;
+    }
+    if(balanceQuery.next()) {
+        accountBalance = balanceQuery.value(0).toInt();
+    }
+
+    //UPDATE AMOUNT
+    accountBalance += depositAmount;
+
+    //UPDATE DATABASE
+    updateDB.prepare("UPDATE accounts "
+                     "SET accountBal = :accountBalance "
+                     "WHERE accountType = :accountTypeInput "
+                     "AND userID = :userID ");
+    updateDB.bindValue(":accountBalance", accountBalance);
+    updateDB.bindValue(":accountTypeInput", accountTypeInput);
+    updateDB.bindValue(":userID", userID);
+
+    updateDB.exec();
+}
+
+
+void BankAccount::on_btnWithdraw_clicked()
+{
+    QSqlQuery balanceQuery;
+    QSqlQuery updateDB;
+    QString accountTypeInput;
+    int withdrawAmount;
+    int accountBalance;
+
+    withdrawAmount = ui->txtWithdraw->toPlainText().trimmed().toInt();
+    accountTypeInput = ui->cbWithdraw->currentText();
+
+    //GET ACCOUNT BALANCE
+    balanceQuery.prepare("SELECT accountBal "
+                         "FROM accounts "
+                         "WHERE accountType = :accountTypeInput "
+                         "AND userID = :userID");
+    balanceQuery.bindValue(":accountTypeInput", accountTypeInput);
+    balanceQuery.bindValue(":userID", userID);
+
+    if(!balanceQuery.exec()) {
+        qWarning() << "Query failed: " << balanceQuery.lastError().text();
+        return;
+    }
+    if(balanceQuery.next()) {
+        accountBalance = balanceQuery.value(0).toInt();
+    }
+
+    accountBalance -= withdrawAmount;
+
+    updateDB.prepare("UPDATE accounts "
+                     "SET accountBal = :accountBalance "
+                     "WHERE accountType = :accountTypeInput "
+                     "AND userID = :userID");
+    updateDB.bindValue(":accountBalance", accountBalance);
+    updateDB.bindValue(":accountTypeInput", accountTypeInput);
+    updateDB.bindValue(":userID", userID);
+
+    updateDB.exec();
+}
+
+void BankAccount::getUserName() {
+    QSqlQuery nameQuery;
+    QString firstName;
+    QString lastName;
+    QString greeting = "Hello, ";
+    QLabel *nameLabel = ui->lblName;
+
+    nameQuery.prepare("SELECT firstName, lastName "
+                      "FROM users "
+                      "WHERE userID = :userID ");
+    nameQuery.bindValue(":userID", userID);
+
+    if(!nameQuery.exec()) {
+        qWarning() << "Query failed: " << nameQuery.lastError().text();
+        return;
+    }
+    if(nameQuery.next()) {
+        firstName = nameQuery.value(0).toString();
+        lastName = nameQuery.value(1).toString();
+    }
+
+    nameLabel->setText(greeting + firstName + " " + lastName);
+}

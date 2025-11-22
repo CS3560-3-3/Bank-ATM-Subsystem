@@ -10,8 +10,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setStyleSheet("background-color: #5A6A85");
     ui->pinTxt->setVisible(false);
     ui->pinSubmit->setVisible(false);
+    QFont appFont("Segoe UI", 20);
+    this->setFont(appFont);
+
 }
 
 MainWindow::~MainWindow()

@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     // Path to the database in the BankATM folder
-    QString dbPath = "C:/Users/RyanF/source/repos/Bank-ATM-Subsystem/ATM/atm.db";
+    QString dbPath = QCoreApplication::applicationDirPath() + "/atm.db";
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(dbPath);

@@ -17,13 +17,21 @@ public:
 
     void setCardNum(qint64 num);
     void setCardPin(int pin);
-    void getAccounts();
-    void getTypes();
     void setActBalance();
     void setComboBox();
+    void getAccounts();
+    void getTypes();
+    void getUserName();
+    void getActNum();
 
 private slots:
     void on_submitTransfer_clicked();
+
+    void on_cancelTransfer_clicked();
+
+    void on_btnSubmitDeposit_clicked();
+
+    void on_btnWithdraw_clicked();
 
 private:
     Ui::BankAccount *ui;

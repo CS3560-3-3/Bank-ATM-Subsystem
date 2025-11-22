@@ -120,10 +120,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="sources\BankAccount.cpp" />
-    <ClCompile Include="sources\card_service.cpp" />
     <ClCompile Include="sources\Checking.cpp" />
-    <ClCompile Include="sources\Crypto.cpp" />
-    <ClCompile Include="sources\crypto_key_manager.cpp" />
     <ClCompile Include="sources\Customer.cpp" />
     <ClCompile Include="sources\Deposit.cpp" />
     <ClCompile Include="sources\Error.cpp" />
@@ -136,10 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\BankAccount.h" />
-    <ClInclude Include="headers\card_service.h" />
     <ClInclude Include="headers\Checking.h" />
-    <ClInclude Include="headers\Crypto.h" />
-    <ClInclude Include="headers\crypto_key_manager.h" />
     <ClInclude Include="headers\Customer.h" />
     <ClInclude Include="headers\Deposit.h" />
     <ClInclude Include="headers\Error.h" />

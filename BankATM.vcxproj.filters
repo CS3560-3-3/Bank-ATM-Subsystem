@@ -18,16 +18,7 @@
     <ClCompile Include="sources\BankAccount.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sources\card_service.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="sources\Checking.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\Crypto.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sources\crypto_key_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="sources\Customer.cpp">
@@ -62,16 +53,7 @@
     <ClInclude Include="headers\BankAccount.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\card_service.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="headers\Checking.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Crypto.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\crypto_key_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="headers\Customer.h">

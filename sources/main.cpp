@@ -1,4 +1,5 @@
 #include <iostream>
+#include "../ATM/mainwindow.h">
 #include "../headers/sqlite3.h"
 #include "../headers/card_service.h"
 #include "../headers/crypto_key_manager.h"
@@ -72,40 +73,6 @@ int main() {
 
 /*--------SELECT DATA--------*/
     selectData(db, phoneNum, userID);
-    // 1. Load database
-
-    // 2. Load AES key (testing CryptoKeyManager)
-    /* CryptoKeyManager km;
-
-    vector<unsigned char> key;
-    if (!km.keyExists()) {
-        cout << "AES key not found. Creating new one.\n";
-        key = km.generateKey();
-        km.saveKey(key);
-    }
-    else {
-        key = km.loadKey();
-        cout << "AES key loaded.\n";
-    }
-
-    // 3. Create CardService
-    CardService cs;
-
-    // 4. Test data
-    int userID = 1;
-    string cardNumber = "4444222266668888";
-    string pin = "1234";
-
-    cout << "\nAdding card...\n";
-
-    if (cs.addCard(db, userID, cardNumber, pin)) {
-        cout << "Card added successfully!\n";
-    }
-    else {
-        cout << "Card insertion FAILED.\n";
-    }
-
-    sqlite3_close(db); */
 
     return 0;
 }

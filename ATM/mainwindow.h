@@ -20,7 +20,13 @@ public:
 private slots:
     void on_submit_clicked();
 
+    void on_pinSubmit_clicked();
+
 private:
     Ui::MainWindow *ui;
+
+    qint64 cardNum;
+    int cardPin;
+    int userNum;
 };
 #endif // MAINWINDOW_H

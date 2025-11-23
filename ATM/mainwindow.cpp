@@ -28,7 +28,7 @@ QString greeting = "Hello, ";
 
 void MainWindow::on_submit_clicked()
 {
-    QString userInput = ui->txtCard->toPlainText().trimmed();
+    QString userInput = ui->txtCard->text().trimmed();
     cardNum = userInput.toLongLong();
 
     /* USER ENTERS THEIR CARD NUM */
@@ -39,8 +39,7 @@ void MainWindow::on_submit_clicked()
     query.bindValue(":cardNum", userInput);
 
     if(!query.exec()) {
-        qWarning() << "DB query failed:" << query.lastError().text();
-        ui->lblText->setText("Database error");
+        ui->lblText->setText("ERROR");
         return;
     }
 
@@ -56,7 +55,7 @@ void MainWindow::on_submit_clicked()
 
         cardPin = query.value(0).toInt();
     } else {
-        ui->lblText->setText("userID not found");
+        ui->lblText->setText("ERROR");
     }
 }
 
@@ -78,7 +77,7 @@ void MainWindow::on_pinSubmit_clicked()
         } else if (userNumQuery.next()) {
             userNum = userNumQuery.value(0).toInt();
         } else {
-            qWarning() << "No user found for cardNum" << cardNum;
+            qWarning() << "ERROR" << cardNum;
         }
 
         QSqlQuery accountQuery;

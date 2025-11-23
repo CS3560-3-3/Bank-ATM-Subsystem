@@ -231,8 +231,10 @@ void BankAccount::on_submitTransfer_clicked()
                           "AND userID = :userID");
     updateToQuery.bindValue(":toBalance", toBalance);
     updateToQuery.bindValue(":accountTo", accountTo);
-    updateFromQuery.bindValue(":userId", userID);
+    updateToQuery.bindValue(":userID", userID);
     updateToQuery.exec();
+
+    setActBalance();
 }//onSubmitTransferClicked
 
 

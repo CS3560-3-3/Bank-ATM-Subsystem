@@ -21,12 +21,13 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget {
-background-color: #536A8F;
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.227273 rgba(24, 24, 24, 255), stop:0.9375 rgba(60, 32, 32, 255));
 }
 
 QLabel {
 color: white;
-}</string>
+}
+</string>
   </property>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
@@ -45,8 +46,12 @@ color: white;
    </property>
    <property name="styleSheet">
     <string notr="true">text {
-color: white;
-}</string>
+color: Black;
+}
+
+QTabBar::tab {background-color : white;
+border: 1px solid black;
+ }</string>
    </property>
    <property name="currentIndex">
     <number>0</number>

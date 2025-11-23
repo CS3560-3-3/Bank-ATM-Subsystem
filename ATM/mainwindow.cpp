@@ -4,7 +4,6 @@
 #include <QString>
 #include <QtSql>
 #include <vector>
-#include "crypto_utils.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -32,62 +31,78 @@ void MainWindow::on_submit_clicked()
     QString userInput = ui->txtCard->text().trimmed();
     cardNum = userInput.toLongLong();
 
+    /* USER ENTERS THEIR CARD NUM */
     QSqlQuery query;
-    query.prepare("SELECT pinHash, pinSalt FROM cards WHERE cardNum = :cardNum");
-    query.bindValue(":cardNum", cardNum);
+    query.prepare("SELECT cardPin "
+                  "FROM cards "
+                  "WHERE cardNum = :cardNum");
+    query.bindValue(":cardNum", userInput);
 
-    if (!query.exec() || !query.next()) {
-        ui->lblText->setText("CARD NOT FOUND");
+    if(!query.exec()) {
+        ui->lblText->setText("ERROR");
         return;
     }
 
-    ui->label->setText("Enter your PIN:");
-    ui->txtCard->hide();
-    ui->pinTxt->setVisible(true);
-    ui->pinSubmit->setVisible(true);
-    ui->submit->setVisible(false);
-}
+    /* IF CARD NUM EXISTS, BRING OUT NEW FORM ELEMENTS*/
+    if (query.next()) {
 
+        ui->label->setText("Enter your PIN: ");
+
+        ui->txtCard->hide();
+        ui->pinTxt->setVisible(true);
+        ui->pinSubmit->setVisible(true);
+        ui->submit->setVisible(false);\
+
+        cardPin = query.value(0).toInt();
+    } else {
+        ui->lblText->setText("ERROR");
+    }
+}
 
 void MainWindow::on_pinSubmit_clicked()
 {
-    QString enteredPin = ui->pinTxt->toPlainText().trimmed();
-
-    QSqlQuery query;
-    query.prepare("SELECT pinHash, pinSalt, userID FROM cards WHERE cardNum = :cardNum");
-    query.bindValue(":cardNum", cardNum);
-
-    if (!query.exec() || !query.next()) {
-        ui->lblText->setText("DATABASE ERROR");
-        return;
-    }
-
-    QByteArray storedHash = query.value("pinHash").toByteArray();
-    QByteArray storedSalt = query.value("pinSalt").toByteArray();
-    int userNum = query.value("userID").toInt();
-
-    QByteArray inputHash = hashPin(enteredPin, storedSalt);
-
-    if (inputHash != storedHash) {
-        ui->lblText->setText("INCORRECT PIN");
-        return;
-    }
-
-    // ✅ PIN correct, continue normally
+    int userInputPin = ui->pinTxt->toPlainText().trimmed().toInt();
+    int userNum = 0;
     std::vector<long long> accountNums;
 
-    QSqlQuery accountQuery;
-    accountQuery.prepare("SELECT accountNum FROM accounts WHERE userID = :userNum");
-    accountQuery.bindValue(":userNum", userNum);
+    if (userInputPin == cardPin) {
+        QSqlQuery userNumQuery;
+        userNumQuery.prepare("SELECT userID "
+                             "FROM cards "
+                             "WHERE cardNum = :cardNum");
+        userNumQuery.bindValue(":cardNum", cardNum);
 
-    if(accountQuery.exec()) {
-        while(accountQuery.next()) {
-            accountNums.push_back(accountQuery.value(0).toLongLong());
+        if(!userNumQuery.exec()) {
+            qWarning() << "Query failed: " << userNumQuery.lastError().text();
+        } else if (userNumQuery.next()) {
+            userNum = userNumQuery.value(0).toInt();
+        } else {
+            qWarning() << "ERROR" << cardNum;
         }
+
+        QSqlQuery accountQuery;
+        accountQuery.prepare("SELECT accountNum "
+                      "FROM accounts "
+                      "WHERE userID = :userNum");
+        accountQuery.bindValue(":userNum", userNum);
+
+        if(!accountQuery.exec()) {
+            qWarning() << "Account query failed:" << accountQuery.lastError().text();
+        } else {
+            while(accountQuery.next()) {
+                long long accNum = accountQuery.value(0).toLongLong();
+                accountNums.push_back(accNum);
+            }
+        }
+
+        BankAccount *accountForm = new BankAccount(cardPin, cardNum, accountNums, userNum);
+
+        accountForm->show();
+        this->hide();
+    } else {
+        ui->lblText->setText("FAILURE");
     }
 
-    BankAccount *accountForm = new BankAccount(0, cardNum, accountNums, userNum);
-    accountForm->show();
-    this->hide();
+    QSqlQuery query;
 }
 

@@ -1,5 +1,9 @@
 QT       += core gui
 QT       += sql
+INCLUDEPATH += security
+HEADERS += security/qaesencryption.h
+SOURCES += security/qaesencryption.cpp
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,6 +22,7 @@ SOURCES += \
 HEADERS += \
     ../headers/sqlite3.h \
     bankaccount.h \
+    crypto_utils.h \
     mainwindow.h
 
 FORMS += \

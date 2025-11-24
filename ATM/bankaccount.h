@@ -23,6 +23,7 @@ public:
     void getTypes();
     void getUserName();
     void getActNum();
+    void displayAccountNumber();
 
 private slots:
     void on_submitTransfer_clicked();

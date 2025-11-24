@@ -1,5 +1,4 @@
 #include "bankaccount.h"
-#include "build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/ui_bankaccount.h"
 #include "ui_bankaccount.h"
 #include <QString>
 #include <QtSql>
@@ -22,6 +21,7 @@ BankAccount::BankAccount(int cardPin, long long cardNum, std::vector<long long> 
     setActBalance();
     setComboBox();
     getUserName();
+    displayAccountNumber();
 }
 
 BankAccount::~BankAccount()
@@ -376,17 +376,20 @@ void BankAccount::getUserName() {
 
 void BankAccount::displayAccountNumber() {
     //Initalization
-    QLabel *accountNum = ui->lblActNum;
-    QString accountType = ui->lblType0->text();
+    QVector<QLabel*> accountLbl {ui->lblActNum, ui->lblActNum2};
+    QVector<QString> accountType {ui->lblType0->text(), ui->lblType1->text()};
     QSqlQuery nameQuery;
-    long long accountNum1;
 
     //setup
-    nameQuery.prepare("SELECT accountNum FROM accounts WHERE accountType = :accountType AND userID = :userID ");
-    nameQuery.bindValue(":accountType", accountType);
-    nameQuery.bindValue(":userID", userID);
-    if(nameQuery.next()) {
-        accountNum1 = nameQuery.value(0).toLongLong();
+    for(int i = 0; i < accountLbl.size(); i++) {
+        nameQuery.prepare("SELECT accountNum FROM accounts WHERE accountType = :accountType AND userID = :userID ");
+        nameQuery.bindValue(":accountType", accountType[i]);
+        nameQuery.bindValue(":userID", userID);
+        if (nameQuery.exec() && nameQuery.next()) {
+            long long accountNums = nameQuery.value(0).toLongLong();
+            accountLbl[i]->setText(QString::number(accountNums));
+        } else {
+            accountLbl[i]->setText("N/A"); // fallback if query fails
+        }
     }
-    accountNum->setText(accountNum1.toString());
 }

@@ -373,3 +373,20 @@ void BankAccount::getUserName() {
 
     nameLabel->setText(greeting + firstName + " " + lastName);
 }
+
+void BankAccount::displayAccountNumber() {
+    //Initalization
+    QLabel *accountNum = ui->lblActNum;
+    QString accountType = ui->lblType0->text();
+    QSqlQuery nameQuery;
+    long long accountNum1;
+
+    //setup
+    nameQuery.prepare("SELECT accountNum FROM accounts WHERE accountType = :accountType AND userID = :userID ");
+    nameQuery.bindValue(":accountType", accountType);
+    nameQuery.bindValue(":userID", userID);
+    if(nameQuery.next()) {
+        accountNum1 = nameQuery.value(0).toLongLong();
+    }
+    accountNum->setText(accountNum1.toString());
+}

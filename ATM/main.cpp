@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
+    qInfo() << QCoreApplication::applicationDirPath();
     QString appDir = QCoreApplication::applicationDirPath();
     QString dbPath = appDir + "/atm.db";
 

@@ -51,12 +51,25 @@ color: Black;
 
 QTabBar::tab {background-color : white;
 border: 1px solid black;
- }</string>
+ }
+
+QTabWidget {
+background-color: transparent;
+}
+
+QLabel {
+background-color: transparent;
+}</string>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tabAccounts">
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+background-color: transparent;
+}</string>
+    </property>
     <attribute name="title">
      <string>Accounts</string>
     </attribute>
@@ -203,6 +216,11 @@ background-color: transparent;
     </widget>
    </widget>
    <widget class="QWidget" name="tabTransfer">
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+background-color: transparent;
+}</string>
+    </property>
     <attribute name="title">
      <string>Transfer</string>
     </attribute>
@@ -459,6 +477,11 @@ background-color: white;
     </widget>
    </widget>
    <widget class="QWidget" name="tabDeposit">
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+background-color: transparent;
+}</string>
+    </property>
     <attribute name="title">
      <string>Deposit</string>
     </attribute>
@@ -521,6 +544,11 @@ background-color: white;
        <family>Titillium Web</family>
        <pointsize>14</pointsize>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QComboBox {
+background-box: white;
+}</string>
      </property>
     </widget>
     <widget class="QWidget" name="verticalLayoutWidget_6">
@@ -634,6 +662,11 @@ background-color: transparent;
     </widget>
    </widget>
    <widget class="QWidget" name="tabWithdraw">
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+background-color: transparent;
+}</string>
+    </property>
     <attribute name="title">
      <string>Withdraw</string>
     </attribute>
@@ -651,6 +684,11 @@ background-color: transparent;
        <family>Titillium Web</family>
        <pointsize>12</pointsize>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QComboBox {
+background-color: white;
+}</string>
      </property>
     </widget>
     <widget class="QPushButton" name="btnWithdraw">
@@ -670,7 +708,7 @@ background-color: transparent;
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton {
-background-color: transparent;
+background-color: white;
 }</string>
      </property>
      <property name="text">

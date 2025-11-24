@@ -393,3 +393,9 @@ void BankAccount::displayAccountNumber() {
         }
     }
 }
+
+void BankAccount::on_exitButton_clicked()
+{
+    QCoreApplication::exit(0);
+}
+

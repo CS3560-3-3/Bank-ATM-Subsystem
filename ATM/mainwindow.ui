@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>527</width>
-    <height>383</height>
+    <width>550</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="font">
@@ -16,15 +16,22 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>ATM</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QMainWindow {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.227273 rgba(72, 72, 127, 255), stop:0.977273 rgba(60, 32, 32, 255));
+}
+
+</string>
+  </property>
+  <property name="animated">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true">QWidget {
-background-color: 536A8F;
+background-color: transparent;
 }</string>
    </property>
    <widget class="QTextEdit" name="pinTxt">
@@ -34,7 +41,7 @@ background-color: 536A8F;
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>280</y>
+      <y>300</y>
       <width>141</width>
       <height>31</height>
      </rect>
@@ -89,6 +96,9 @@ background-color: 536A8F;
       <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -106,7 +116,7 @@ background-color: 536A8F;
     <property name="geometry">
      <rect>
       <x>110</x>
-      <y>280</y>
+      <y>300</y>
       <width>291</width>
       <height>31</height>
      </rect>
@@ -177,16 +187,6 @@ background-color: white;
      <string>Submit</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>527</width>
-     <height>20</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

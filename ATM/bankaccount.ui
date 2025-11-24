@@ -497,7 +497,7 @@ background-color: transparent;
      <property name="font">
       <font>
        <family>Titillium Web</family>
-       <pointsize>12</pointsize>
+       <pointsize>11</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -547,7 +547,7 @@ background-color: white;
      </property>
      <property name="styleSheet">
       <string notr="true">QComboBox {
-background-box: white;
+background-color: white;
 }</string>
      </property>
     </widget>
@@ -755,7 +755,7 @@ background-color: transparent;
         <property name="font">
          <font>
           <family>Titillium Web</family>
-          <pointsize>14</pointsize>
+          <pointsize>12</pointsize>
           <bold>false</bold>
          </font>
         </property>

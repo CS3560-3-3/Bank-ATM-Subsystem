@@ -1,4 +1,5 @@
 #include "bankaccount.h"
+#include "build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/ui_bankaccount.h"
 #include "ui_bankaccount.h"
 #include <QString>
 #include <QtSql>
@@ -300,6 +301,7 @@ void BankAccount::on_btnSubmitDeposit_clicked()
     updateDB.bindValue(":userID", userID);
 
     updateDB.exec();
+    setActBalance();
 }
 
 
@@ -341,6 +343,7 @@ void BankAccount::on_btnWithdraw_clicked()
     updateDB.bindValue(":userID", userID);
 
     updateDB.exec();
+    setActBalance();
 }
 
 void BankAccount::getUserName() {

@@ -186,8 +186,10 @@ void BankAccount::on_submitTransfer_clicked()
     //SET THE FROM BALANCE
     fromQuery.prepare("SELECT accountBal "
                     "FROM accounts "
-                      "WHERE accountType = :accountFrom");
+                      "WHERE accountType = :accountFrom "
+                      "AND userID = :userID");
     fromQuery.bindValue(":accountFrom", accountFrom);
+    fromQuery.bindValue(":userID", userID);
 
     if(!fromQuery.exec()) {
         qWarning() << "Query failed: " << fromQuery.lastError().text();
@@ -200,8 +202,10 @@ void BankAccount::on_submitTransfer_clicked()
     //SET THE TO BALANCE
     toQuery.prepare("SELECT accountBal "
                     "FROM accounts "
-                    "WHERE accountType = :accountTo");
+                    "WHERE accountType = :accountTo "
+                    "AND userID = :userID ");
     toQuery.bindValue(":accountTo", accountTo);
+    toQuery.bindValue(":userID", userID);
 
     if(!toQuery.exec()) {
         qWarning() << "Query failed: " << toQuery.lastError().text();

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>527</width>
-    <height>383</height>
+    <width>720</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="font">
@@ -27,155 +27,278 @@
 background-color: 536A8F;
 }</string>
    </property>
-   <widget class="QTextEdit" name="pinTxt">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
+   <widget class="QLabel" name="bgImage">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>280</y>
-      <width>141</width>
-      <height>31</height>
+      <x>0</x>
+      <y>10</y>
+      <width>740</width>
+      <height>440</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>0</y>
-      <width>298</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_3">
-     <item>
-      <widget class="QLabel" name="lblText">
-       <property name="font">
-        <font>
-         <family>Segoe UI</family>
-         <pointsize>20</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>WELCOME</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="font">
-        <font>
-         <family>Segoe UI</family>
-         <pointsize>20</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Please Insert Your Card</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>160</y>
-      <width>91</width>
-      <height>91</height>
-     </rect>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/res/bgAtm.png);</string>
     </property>
     <property name="text">
      <string/>
     </property>
-    <property name="pixmap">
-     <pixmap>build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/debug/149767-200.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-    <property name="openExternalLinks">
-     <bool>true</bool>
-    </property>
    </widget>
-   <widget class="QLineEdit" name="txtCard">
+   <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>280</y>
-      <width>291</width>
-      <height>31</height>
+      <x>160</x>
+      <y>60</y>
+      <width>419</width>
+      <height>316</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <family>Titillium Web</family>
-      <pointsize>18</pointsize>
-     </font>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
     </property>
-    <property name="styleSheet">
-     <string notr="true">QLineEdit {
-background-color: white;
-}</string>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
     </property>
-    <property name="maxLength">
-     <number>16</number>
-    </property>
-    <property name="placeholderText">
-     <string>Card#</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="submit">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>280</y>
-      <width>111</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Titillium Web</family>
-      <pointsize>20</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{ 
-background-color: white;
-}</string>
-    </property>
-    <property name="text">
-     <string>Submit</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pinSubmit">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>280</y>
-      <width>111</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Titillium Web</family>
-      <pointsize>20</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-	background-color: white;
-}</string>
-    </property>
-    <property name="text">
-     <string>Submit</string>
-    </property>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>401</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QLabel" name="lblText">
+        <property name="font">
+         <font>
+          <family>Titillium Web</family>
+          <pointsize>-1</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: white;
+    font-family: &quot;Titillium Web&quot;;
+    font-size: 30px;
+    font-weight: bold;
+    qproperty-alignment: AlignCenter;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>WELCOME</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <family>Titillium Web</family>
+          <pointsize>-1</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: white;
+    font-family: &quot;Titillium Web&quot;;
+    font-size: 30px;
+    font-weight: bold;
+    qproperty-alignment: AlignCenter;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Please Insert Your Card</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLineEdit" name="txtCard">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>260</y>
+       <width>291</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>-1</pointsize>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit {
+    background-color: #b7c0bb;        /* soft gray-green like ATM input fields */
+    color: #ffffff;                   /* white text */
+    font: 18px &quot;Segoe UI&quot;;
+    padding: 6px 10px;
+    border: 2px solid #8fa29a;        /* slightly darker accent */
+    border-radius: 10px;
+    selection-background-color: #4A90E2;  /* blue highlight */
+    selection-color: white;
+}
+
+QLineEdit:hover {
+    background-color: #c3ccc6;
+}
+
+QLineEdit:focus {
+    background-color: #d3dbd6;
+    border: 2px solid #4A90E2;        /* blue focus ring */
+    color: #000000;                   /* switch to dark text for visibility */
+}
+</string>
+     </property>
+     <property name="maxLength">
+      <number>16</number>
+     </property>
+     <property name="placeholderText">
+      <string>Card#</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="pinTxt">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>260</y>
+       <width>141</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#pinTxt {
+    background-color: #b7c0bb;
+    color: #ffffff;
+    font: bold 20px &quot;Segoe UI&quot;;     /* 🔥 bold + larger text/dots */
+    padding: 6px 10px;
+    border: 2px solid #8fa29a;
+    border-radius: 10px;
+    selection-background-color: #4A90E2;
+    selection-color: white;
+}
+
+#pinTxt:hover {
+    background-color: #c3ccc6;
+}
+
+#pinTxt:focus {
+    background-color: #d3dbd6;
+    border: 2px solid #4A90E2;
+    color: #000000;
+}
+</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pinSubmit">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>260</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>-1</pointsize>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: white;
+    color: #2b2b2b;
+    font: bold 15px &quot;Segoe UI&quot;;
+    padding: 8px 20px;
+    border-radius: 12px;
+    border: 3px solid #4A90E2;   /* blue accent border */
+}
+
+QPushButton:hover {
+    background-color: #f2f2f2;
+}
+
+QPushButton:pressed {
+    background-color: #e6e6e6;
+    border: 3px solid #2F6CC0;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Submit</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="submit">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>260</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>-1</pointsize>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: white;
+    color: #2b2b2b;
+    font: bold 15px &quot;Segoe UI&quot;;
+    padding: 8px 20px;
+    border-radius: 12px;
+    border: 3px solid #4A90E2;   /* blue accent border */
+}
+
+QPushButton:hover {
+    background-color: #b0b0b0;
+}
+
+QPushButton:pressed {
+    background-color: #e6e6e6;
+    border: 3px solid #2F6CC0;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Submit</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>90</y>
+       <width>321</width>
+       <height>181</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/res/insertAtmCard.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -183,8 +306,8 @@ background-color: white;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>527</width>
-     <height>20</height>
+     <width>720</width>
+     <height>19</height>
     </rect>
    </property>
   </widget>

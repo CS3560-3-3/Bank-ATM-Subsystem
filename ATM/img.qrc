@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>bgAtm.png</file>
+        <file>insertAtmCard.png</file>
+    </qresource>
+</RCC>

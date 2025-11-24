@@ -29,604 +29,920 @@ color: white;
 }
 </string>
   </property>
-  <widget class="QTabWidget" name="tabWidget">
+  <widget class="QFrame" name="atmScreenFrame">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>601</width>
-     <height>491</height>
+     <x>80</x>
+     <y>60</y>
+     <width>471</width>
+     <height>351</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <pointsize>11</pointsize>
-     <bold>true</bold>
-    </font>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
    </property>
-   <property name="styleSheet">
-    <string notr="true">text {
+   <property name="frameShadow">
+    <enum>QFrame::Shadow::Raised</enum>
+   </property>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>451</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">text {
 color: Black;
 }
 
-QTabBar::tab {background-color : white;
-border: 1px solid black;
- }</string>
-   </property>
-   <property name="currentIndex">
-    <number>0</number>
-   </property>
-   <widget class="QWidget" name="tabAccounts">
-    <attribute name="title">
-     <string>Accounts</string>
-    </attribute>
-    <widget class="QWidget" name="verticalLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>70</y>
-       <width>160</width>
-       <height>261</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QLabel" name="lblType0">
-        <property name="font">
-         <font>
-          <pointsize>17</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Checking</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="lblBalance0">
-        <property name="font">
-         <font>
-          <pointsize>15</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_2"/>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Orientation::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_3"/>
-      </item>
-      <item>
-       <widget class="QLabel" name="lblType1">
-        <property name="font">
-         <font>
-          <pointsize>17</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Savings: </string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="lblBalance1">
-        <property name="font">
-         <font>
-          <pointsize>15</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QLabel" name="lblName">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>401</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>20</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLabel {
-color: white;
-}</string>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="lblActNum">
-     <property name="geometry">
-      <rect>
-       <x>260</x>
-       <y>80</y>
-       <width>151</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tabTransfer">
-    <attribute name="title">
-     <string>Transfer</string>
-    </attribute>
-    <widget class="QTextEdit" name="txtAmt">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>250</y>
-       <width>104</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QTextEdit {
-background-color: white;
-}</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="lblAmount">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>250</y>
-       <width>101</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Amount: $</string>
-     </property>
-    </widget>
-    <widget class="QWidget" name="verticalLayoutWidget_4">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>40</y>
-       <width>221</width>
-       <height>201</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_4">
-      <item>
-       <widget class="QLabel" name="lblTransferFrom">
-        <property name="font">
-         <font>
-          <pointsize>16</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Transfer From: </string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Orientation::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QLabel" name="lblTransferTo">
-        <property name="font">
-         <font>
-          <pointsize>16</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Transfer To: </string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-     <zorder>lblTransferFrom</zorder>
-     <zorder>lblTransferTo</zorder>
-     <zorder>horizontalSpacer_3</zorder>
-    </widget>
-    <widget class="QWidget" name="verticalLayoutWidget_5">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>60</y>
-       <width>191</width>
-       <height>161</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_5">
-      <item>
-       <widget class="QComboBox" name="cbFrom">
-        <property name="maximumSize">
-         <size>
-          <width>160</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QComboBox {
-background-color: white;
-}</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Orientation::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QComboBox" name="cbTo">
-        <property name="maximumSize">
-         <size>
-          <width>160</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QComboBox {
-background-color: white;
-}</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="horizontalLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>280</y>
-       <width>160</width>
-       <height>80</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QPushButton" name="submitTransfer">
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
-background-color: white;
-}</string>
-        </property>
-        <property name="text">
-         <string>Transfer</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="cancelTransfer">
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
-background-color: white;
-}</string>
-        </property>
-        <property name="text">
-         <string>Cancel</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QLabel" name="lblAmount_2">
-     <property name="geometry">
-      <rect>
-       <x>350</x>
-       <y>250</y>
-       <width>81</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>.00</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tabDeposit">
-    <attribute name="title">
-     <string>Deposit</string>
-    </attribute>
-    <widget class="QTextEdit" name="txtDeposit">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>220</y>
-       <width>131</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QTextEdit {
-background-color: white;
-}</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btnSubmitDeposit">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>290</y>
-       <width>131</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-background-color: white;
-}</string>
-     </property>
-     <property name="text">
-      <string>Submit</string>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="cbDeposit">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>100</y>
-       <width>131</width>
-       <height>22</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QWidget" name="verticalLayoutWidget_6">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>80</y>
-       <width>181</width>
-       <height>181</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_6">
-      <item>
-       <widget class="QLabel" name="lblDepositTo">
-        <property name="font">
-         <font>
-          <pointsize>18</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Deposit To:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_4">
-        <property name="orientation">
-         <enum>Qt::Orientation::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QLabel" name="lblDepositTo_2">
-        <property name="font">
-         <font>
-          <pointsize>16</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Deposit Amount:</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tabWithdraw">
-    <attribute name="title">
-     <string>Withdraw</string>
-    </attribute>
-    <widget class="QComboBox" name="cbWithdraw">
-     <property name="geometry">
-      <rect>
-       <x>230</x>
-       <y>110</y>
-       <width>171</width>
-       <height>22</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btnWithdraw">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>290</y>
-       <width>151</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>20</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Submit</string>
-     </property>
-    </widget>
-    <widget class="QWidget" name="horizontalLayoutWidget_2">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>180</y>
-       <width>166</width>
-       <height>73</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QLabel" name="label">
-        <property name="font">
-         <font>
-          <pointsize>20</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-text-align: center;
-}</string>
-        </property>
-        <property name="text">
-         <string>$</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QTextEdit" name="txtWithdraw">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>34</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>20</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QTextEdit {
-background-color: white;
+/* ---------- TAB BAR CONTAINER ---------- */
+QTabWidget::pane {
+    border: 0px;
+    padding: 5px;
 }
 
+/* ---------- TAB BAR ---------- */
+QTabBar {
+    background: transparent;
+}
+
+/* ---------- DEFAULT TABS ---------- */
+QTabBar::tab {
+    color: white;
+    background: #2d2d2d;
+    padding: 10px 25px;
+    margin-right: 2px;
+    font-size: 10px;
+    font-weight: bold;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border: 1px solid #444;
+}
+
+/* ---------- HOVER EFFECT ---------- */
+QTabBar::tab:hover {
+    background: #3b3b3b;
+    border: 1px solid #666;
+}
+
+/* ---------- SELECTED TAB ---------- */
+QTabBar::tab:selected {
+    background: #5b0f12; /* deep red highlight */
+    color: white;
+    border: 1px solid #a33238;
+}
+
+/* ---------- UNSELECTED TABS ---------- */
+QTabBar::tab:!selected {
+    background: #2d2d2d;
+    color: #d3d3d3;
+}
 </string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_2">
-        <property name="font">
-         <font>
-          <pointsize>20</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="tabAccounts">
+     <attribute name="title">
+      <string>Accounts</string>
+     </attribute>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>155</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="lblType0">
+         <property name="font">
+          <font>
+           <pointsize>17</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    color: white;
+    font-weight: bold;
+    padding: 8px 14px;
+
+    background-color: rgba(120, 0, 0, 60);  /* dark red tint */
+    border: 2px solid rgba(255, 80, 80, 120); 
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 60, 60, 80);
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Checking</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblBalance0">
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2"/>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblType1">
+         <property name="font">
+          <font>
+           <pointsize>17</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    color: white;
+    font-weight: bold;
+    padding: 8px 14px;
+
+    background-color: rgba(120, 0, 0, 60);  /* dark red tint */
+    border: 2px solid rgba(255, 80, 80, 120); 
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 60, 60, 80);
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Savings: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblBalance1">
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="lblName">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>291</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#lblName {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: &quot;Segoe UI&quot;;
+    padding: 10px 20px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblActNum">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>50</y>
+        <width>151</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Account #</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabTransfer">
+     <attribute name="title">
+      <string>Transfer</string>
+     </attribute>
+     <widget class="QTextEdit" name="txtAmt">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>210</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit {
+    background-color: #2b2b2b;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblAmount">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>210</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Amount: $</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>221</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QLabel" name="lblTransferTo">
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Transfer From: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblTransferFrom">
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Transfer To: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+      <zorder>horizontalSpacer_3</zorder>
+      <zorder>lblTransferFrom</zorder>
+      <zorder>lblTransferTo</zorder>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_5">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>10</y>
+        <width>191</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QComboBox" name="cbFrom">
+         <property name="maximumSize">
+          <size>
+           <width>160</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QComboBox {
+    background-color: #2b2b2b;       /* dark input background */
+    color: white;                    /* text color */
+    padding: 6px 10px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: &quot;Segoe UI&quot;;
+}
+
+QComboBox:hover {
+    border: 1px solid #bb4444;       /* subtle red hover accent */
+}
+
+QComboBox::drop-down {
+    border: none;
+    width: 22px;
+    background: transparent;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #1e1e1e;      /* dropdown background */
+    color: white;
+    padding: 6px;
+    selection-background-color: #bb4444; /* selected row highlight */
+    border: 1px solid #333;
+    outline: 0;
+}
+</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QComboBox" name="cbTo">
+         <property name="maximumSize">
+          <size>
+           <width>160</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QComboBox {
+    background-color: #2b2b2b;       /* dark input background */
+    color: white;                    /* text color */
+    padding: 6px 10px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: &quot;Segoe UI&quot;;
+}
+
+QComboBox:hover {
+    border: 1px solid #bb4444;       /* subtle red hover accent */
+}
+
+QComboBox::drop-down {
+    border: none;
+    width: 22px;
+    background: transparent;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #1e1e1e;      /* dropdown background */
+    color: white;
+    padding: 6px;
+    selection-background-color: #bb4444; /* selected row highlight */
+    border: 1px solid #333;
+    outline: 0;
+}
+</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>250</y>
+        <width>191</width>
+        <height>39</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="submitTransfer">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #2b2b2b;        /* dark matte base */
+    color: white;                     /* text color */
+    font: 12pt &quot;Segoe UI Semibold&quot;;   /* clean readable font */
+    border-radius: 6px;               /* rounded corners */
+    padding: 6px 16px;                /* comfortable padding */
+    border: 1px solid #444;           /* subtle border */
+}
+
+QPushButton:hover {
+    background-color: #383838;        /* lighter on hover */
+    border: 1px solid #bb0a1e;        /* red accent glow */
+}
+
+QPushButton:pressed {
+    background-color: #1e1e1e;        /* slightly darker */
+    border: 1px solid #770814;
+}
+
+QPushButton:disabled {
+    background-color: #3a3a3a;
+    color: #777;
+    border: 1px solid #555;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Transfer</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="cancelTransfer">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #2b2b2b;        /* dark matte base */
+    color: white;                     /* text color */
+    font: 12pt &quot;Segoe UI Semibold&quot;;   /* clean readable font */
+    border-radius: 6px;               /* rounded corners */
+    padding: 6px 16px;                /* comfortable padding */
+    border: 1px solid #444;           /* subtle border */
+}
+
+QPushButton:hover {
+    background-color: #383838;        /* lighter on hover */
+    border: 1px solid #bb0a1e;        /* red accent glow */
+}
+
+QPushButton:pressed {
+    background-color: #1e1e1e;        /* slightly darker */
+    border: 1px solid #770814;
+}
+
+QPushButton:disabled {
+    background-color: #3a3a3a;
+    color: #777;
+    border: 1px solid #555;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Cancel</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="lblAmount_2">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>210</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>.00</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabDeposit">
+     <attribute name="title">
+      <string>Deposit</string>
+     </attribute>
+     <widget class="QTextEdit" name="txtDeposit">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>150</y>
+        <width>141</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit {
+background-color: #1E1E1E;      /* dark charcoal */
+    color: white;                   /* clean white text */
+    border: 1px solid #444;         /* soft border */
+    border-radius: 6px;             /* rounded corners */
+    padding: 6px;                   /* space inside input */
+    font-size: 14px;                /* clean readable text */;
+}</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnSubmitDeposit">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>220</y>
+        <width>111</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #1A1A1A;
+    color: white;
+    font: bold 12px &quot;Segoe UI&quot;;
+    padding: 12px 28px;
+    border-radius: 6px;
+    border: 2px solid #444;
+}
+
+QPushButton:hover {
+    background-color: #2A2A2A;
+    border: 2px solid #666;
+}
+
+QPushButton:pressed {
+    background-color: #000;
+    border: 2px solid #880000;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Submit</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cbDeposit">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>20</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QComboBox {
+    background-color: #1E1E1E;   /* dark gray box */
+    color: white;                 /* white text */
+    padding: 6px;
+    border: 1px solid #444;       /* subtle border */
+    border-radius: 6px;           /* smooth rounded edges */
+    font-size: 14px;
+}
+
+/* Remove dropdown arrow completely */
+QComboBox::drop-down {
+    width: 0px;
+    border: none;
+    background: transparent;
+}
+
+/* Dropdown menu styling */
+QComboBox QAbstractItemView {
+    background-color: #1E1E1E;         /* match box color */
+    color: white;
+    border: 1px solid #444;
+    selection-background-color: #550000;  /* deep red highlight */
+    selection-color: white;
+    outline: none;
+}
+</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>201</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QLabel" name="lblDepositTo">
+         <property name="font">
+          <font>
+           <pointsize>18</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Deposit To:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblDepositTo_2">
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Deposit Amount:</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabWithdraw">
+     <attribute name="title">
+      <string>Withdraw</string>
+     </attribute>
+     <widget class="QComboBox" name="cbWithdraw">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>0</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QComboBox {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 6px 10px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* Dropdown list */
+QComboBox QAbstractItemView {
+    background-color: #1f1f1f;
+    color: white;
+    selection-background-color: #8b0000;   /* dark red highlight */
+    selection-color: white;
+    border: 1px solid #333;
+}</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnWithdraw">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>230</y>
+        <width>141</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>18</pointsize>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #1A1A1A;
+    color: white;
+    font: bold 18pt &quot;Segoe UI&quot;;
+    padding: 12px 28px;
+    border-radius: 6px;
+    border: 2px solid #444;
+}
+
+QPushButton:hover {
+    background-color: #2A2A2A;
+    border: 2px solid #666;
+}
+
+QPushButton:pressed {
+    background-color: #000;
+    border: 2px solid #880000;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Submit</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>100</y>
+        <width>241</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
 text-align: center;
 }</string>
-        </property>
-        <property name="text">
-         <string>.00</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="gridLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>80</y>
-       <width>160</width>
-       <height>141</height>
-      </rect>
-     </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="1" column="0">
-       <widget class="QLabel" name="lblWithdraw_2">
-        <property name="font">
-         <font>
-          <pointsize>16</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Amount:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="lblWithdraw">
-        <property name="font">
-         <font>
-          <pointsize>14</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Withdraw From:</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+         </property>
+         <property name="text">
+          <string>$</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="txtWithdraw">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>34</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>12</pointsize>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTextEdit {
+    background-color: #2E2E2E;
+    color: white;
+    font: 12pt &quot;Segoe UI&quot;;
+    border: 2px solid #444;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+/* Remove the weird white inset border some themes add */
+QTextEdit:focus {
+    border: 2px solid #666;
+}
+</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+text-align: center;
+}</string>
+         </property>
+         <property name="text">
+          <string>.00</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>171</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblWithdraw_2">
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Amount:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblWithdraw">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Withdraw From:</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </widget>
   </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>631</width>
+     <height>491</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/res/bgAtm.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label_3</zorder>
+  <zorder>atmScreenFrame</zorder>
  </widget>
  <resources/>
  <connections/>
